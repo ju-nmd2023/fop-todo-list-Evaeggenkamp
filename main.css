@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #4c6444;
+  color: #caba9c;
+  font-family: "Times New Roman", Times, serif;
+  min-height: 100vh;
+}
+
+header {
+  font-size: 1.5rem;
+}
+
+header,
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  padding-left: 1rem;
+  font-size: 1.8rem;
+  border: none;
+  background: white;
+  border-radius: 2rem;
+}
+
+form button {
+  color: blue;
+  background: white;
+}
