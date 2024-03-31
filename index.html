@@ -3,27 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do List</title>
+    <title>To Do</title>
     <link rel="stylesheet" href="main.css" />
     <script src="main.js"></script>
   </head>
   <body>
     <header>
-      <h1>To do List</h1>
+      <h1>To Do</h1>
     </header>
-    <form action="">
-      <input type="text" class="todo-input" />
-      <button class="todo-input" type="submit">+</button>
-      <div class="select">
-        <select name="todos" class="filter-todo">
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="incomplete">Incomplete</option>
-        </select>
+
+    <div class="grid-container">
+      <div class="grid-item1-clock">
+        <h1 id="time"></h1>
+        <h2 id="date"></h2>
       </div>
-    </form>
-    <div class="todo-container">
-      <ul class="todo-list"></ul>
+
+      <div class="grid-item2">
+        <div class="input-container">
+          <form action="">
+            <input type="text" class="todo-input" placeholder="Enter task" />
+            <button class="todo-input-button" type="submit">+</button>
+          </form>
+          <select name="todos" class="filter-todo">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="incomplete">Incomplete</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-item3"></div>
     </div>
   </body>
 </html>
