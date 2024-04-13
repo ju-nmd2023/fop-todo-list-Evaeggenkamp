@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do</title>
     <link rel="stylesheet" href="main.css" />
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
   </head>
   <body>
     <header>
@@ -21,18 +21,22 @@
       <div class="grid-item2">
         <div class="input-container">
           <form action="">
-            <input type="text" class="todo-input" placeholder="Enter task" />
+            <input type="text" id="todo-input" placeholder="Enter task" />
             <button class="todo-input-button" type="submit">+</button>
           </form>
-          <select name="todos" class="filter-todo">
-            <option value="all">All</option>
-            <option value="completed">Completed</option>
-            <option value="incomplete">Incomplete</option>
-          </select>
+          <div class="select-box">
+            <select name="todos" class="filter-todo">
+              <option value="all">All</option>
+              <option value="completed">Completed</option>
+              <option value="incomplete">Incomplete</option>
+            </select>
+          </div>
         </div>
+        <ul id="todo-list"></ul>
       </div>
-
-      <div class="grid-item3"></div>
+      <div class="grid-item3">
+        <h1 class="water-tracker">Water Tracker</h1>
+      </div>
     </div>
   </body>
 </html>
