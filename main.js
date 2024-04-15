@@ -18,6 +18,19 @@ setInterval(updateTime, 60000);
 
 updateTime();
 
+//delete button//
+
+const buttons = document.querySelectorAll(".button");
+buttons.forEach((button) => {
+  button.addEventListener("mousedown", function () {
+    button.classList.toggle("active");
+  });
+
+  button.addEventListener("mouseup", function (event) {
+    event.preventDefault();
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
   const input = document.getElementById("todo-input");
@@ -28,24 +41,37 @@ document.addEventListener("DOMContentLoaded", function () {
     todoList.innerHTML = "";
 
     for (let i = tasks.length - 1; i >= 0; i--) {
-      const taskText = tasks[i];
+      const taskText = tasks[i].title;
       const taskItem = document.createElement("li");
-      taskItem.textContent = taskText;
+      taskItem.classList.add("task-item");
+      taskItem.value = i;
 
-      const deleteButton = document.createElement("li");
+      const taskTextElement = document.createElement("span");
+      taskTextElement.textContent = taskText;
+      if (tasks[i].completed === true) {
+        taskTextElement.classList.add("completed");
+      }
+      taskItem.appendChild(taskTextElement);
+
+      const deleteButton = document.createElement("button");
       deleteButton.textContent = "X";
       deleteButton.addEventListener("click", function () {
-        tasks.splice(i, 1);
+        tasks.splice(this.parentNode.value, 1);
         localStorage.setItem("tasks", JSON.stringify(tasks));
         renderTasks();
       });
 
       taskItem.appendChild(deleteButton);
 
-      taskItem.addEventListener("click", function () {
-        this.classList.toggle("completed");
+      taskTextElement.addEventListener("click", function () {
+        const todo = tasks[this.parentNode.value];
+        if (todo) {
+          todo.completed = !todo.completed;
+        }
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        renderTasks();
       });
-      todoList.insertBefore(taskItem, todoList.firstChild);
+      todoList.appendChild(taskItem);
     }
   }
 
@@ -54,9 +80,9 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const taskText = input.value.trim();
+    const taskText = input.value;
     if (taskText !== "") {
-      tasks.push(taskText);
+      tasks.push({ title: taskText, completed: false });
       localStorage.setItem("tasks", JSON.stringify(tasks));
       renderTasks();
       input.value = "";

@@ -89,10 +89,6 @@ header h1 {
   margin-left: 10px;
 }
 
-.todo-input-button[type="submit"]:hover {
-  background-color: #102820;
-}
-
 .select-box {
   color: #beceb8;
   background-color: #728a6a;
@@ -121,7 +117,7 @@ select {
 #todo-input {
   border-radius: 20px;
   border: none;
-  width: 460px;
+  width: 565px;
   height: 40px;
   padding-left: 20px;
   background-color: #728a6a;
@@ -152,8 +148,50 @@ select {
   font-weight: bolder;
 }
 
-#todo-list li.completed {
+.completed {
   text-decoration: line-through;
   text-decoration-color: #beceb8;
   text-decoration-thickness: 8px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+.task-item span {
+  flex-grow: 1;
+}
+
+.task-item button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  text-decoration: none;
+  font-weight: small;
+  font-size: larger;
+  color: #728a6a;
+}
+
+.button {
+  padding: 35px;
+  background-color: transparent;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color ease;
+  margin-left: 45px;
+}
+
+.button svg {
+  width: 30px;
+  height: auto;
+  margin-top: 5px;
+}
+
+.button.active svg path {
+  stroke: #beceb8;
+  fill: #728a6a;
 }
