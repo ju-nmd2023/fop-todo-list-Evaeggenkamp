@@ -1,3 +1,4 @@
+//got help with the next lines from 2 to 22 https://chat.openai.com/share/a24d2bac-3a6d-4dd5-81ea-1a641f309493
 function updateTime() {
   const now = new Date();
   const hours = now.getHours().toString().padStart(2, "0");

@@ -99,21 +99,6 @@ header h1 {
   border: 0;
 }
 
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  color: #beceb8;
-  background-color: transparent;
-  width: 100px;
-  height: 40px;
-  border-radius: 60px !important;
-  overflow: hidden;
-  border: 0;
-  outline: 0;
-  padding-left: 15px;
-}
-
 #todo-input {
   border-radius: 20px;
   border: none;
